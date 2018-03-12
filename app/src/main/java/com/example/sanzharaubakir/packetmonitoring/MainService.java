@@ -58,19 +58,11 @@ public class MainService extends Service {
                     if (appName == null || appName.isEmpty()){
                         continue;
                     }
-                    if (process.foreground && !appName.equals("PacketMonitoring")){
+                    if (process.foreground && !appName.equals("PacketMonitoring") && !currentApp.equals(appName)){
                         cnt--;
-                        //Toast.makeText(getApplicationContext(), "You are in " + appName, Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Currently in foreground - " + appName);
-                    }
-                    /*if (!appName.equals(currentApp)){
-                        //Log.d(TAG, appName);
                         currentApp = appName;
                     }
-                    if (appName.contains("unshaky")){
-                        runService = false;
-                        break;
-                    }*/
                 }
             }catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
