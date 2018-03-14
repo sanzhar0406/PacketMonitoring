@@ -14,13 +14,31 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // How to run notification listner
+        //Intent i=new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+        //startActivity(i);
 
     }
-    public void onClickStart(View v) {
-        startService(new Intent(this, MainService.class));
+    public void startServices(View v){
+        startService(new Intent(this, ProcessMonitoringService.class));
+        startService(new Intent(this, NotificationMonitoringService.class));
+    }
+    public void stopServices(View v){
+        stopService(new Intent(this, ProcessMonitoringService.class));
+        stopService(new Intent(this, NotificationMonitoringService.class));
+    }
+    /*public void startProcessMonitoring(View v) {
+        startService(new Intent(this, ProcessMonitoringService.class));
     }
 
-    public void onClickStop(View v) {
-        stopService(new Intent(this, MainService.class));
+    public void stopProcessMonitoring(View v) {
+        stopService(new Intent(this, ProcessMonitoringService.class));
     }
+    public void startNotificationMonitoring(View v) {
+        startService(new Intent(this, NotificationMonitoringService.class));
+    }
+
+    public void stopNotificationMonitoring(View v) {
+        stopService(new Intent(this, NotificationMonitoringService.class));
+    }*/
 }

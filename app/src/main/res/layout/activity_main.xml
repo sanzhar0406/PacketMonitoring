@@ -8,14 +8,43 @@
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClickStart"
+        android:onClick="startServices"
         android:text="@string/start">
     </Button>
     <Button
         android:id="@+id/btnStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClickStop"
+        android:onClick="stopServices"
         android:text="@string/stop">
     </Button>
+    <!--<Button
+        android:id="@+id/btnProcessStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startProcessMonitoring"
+        android:text="@string/startProcessMonitoring">
+    </Button>
+    <Button
+        android:id="@+id/btnProcessStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopProcessMonitoring"
+        android:text="@string/stopProcessMonitoring">
+    </Button>
+    <Button
+        android:id="@+id/btnNotificationStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startNotificationMonitoring"
+        android:text="@string/startNotificationMonitoring">
+    </Button>
+    <Button
+        android:id="@+id/btnNotificationStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopNotificationMonitoring"
+        android:text="@string/stopNotificationMonitoring">
+    </Button>
+    -->
 </LinearLayout>

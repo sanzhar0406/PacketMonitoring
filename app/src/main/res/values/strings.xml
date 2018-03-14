@@ -2,4 +2,8 @@
     <string name="app_name">PacketMonitoring</string>
     <string name="stop">Stop Service</string>
     <string name="start">Start Service</string>
+    <string name="startProcessMonitoring">Start Process Monitoring</string>
+    <string name="stopProcessMonitoring">Stop Process Monitoring</string>
+    <string name="startNotificationMonitoring">Start Notification Monitoring</string>
+    <string name="stopNotificationMonitoring">Stop Notifiaction Monitoring</string>
 </resources>
