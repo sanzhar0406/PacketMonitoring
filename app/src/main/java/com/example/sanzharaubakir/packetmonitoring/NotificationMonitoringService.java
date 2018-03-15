@@ -1,8 +1,10 @@
 package com.example.sanzharaubakir.packetmonitoring;
 
+import android.os.Environment;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -27,9 +29,14 @@ public class NotificationMonitoringService extends NotificationListenerService {
     public void onNotificationPosted(StatusBarNotification sbn) {
         super.onNotificationPosted(sbn);
         FileWriter fileWriter = null;
-        String fileName = System.getProperty("user.home")+"/notifications.csv";
+        //String fileName = System.getProperty("user.home")+"/notifications.csv";
+
+        File documentsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        documentsDir.mkdirs();
+        File file = new File(documentsDir.getAbsolutePath() + "/notifications.csv");
+
         try {
-            fileWriter = new FileWriter(fileName);
+            fileWriter = new FileWriter(file);
 
             long startTime = System.nanoTime();
             while ((System.nanoTime() - startTime) < workTime) {

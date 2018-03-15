@@ -4,16 +4,17 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 import com.jaredrummler.android.processes.models.Stat;
 import com.jaredrummler.android.processes.models.Statm;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -39,9 +40,12 @@ public class ProcessMonitoringService extends Service {
         //int cnt = 100;
         int result = super.onStartCommand(intent, flags, startId);
         FileWriter fileWriter = null;
-        String fileName = System.getProperty("user.home")+"/processes.csv";
+        //String fileName = System.getProperty("user.home")+"/processes.csv";
+        File documentDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS  + "/processes.csv");
+        documentDir.mkdirs();
+        File file = new File(documentDir.getAbsolutePath()  + "/processes.csv");
         try {
-            fileWriter = new FileWriter(fileName);
+            fileWriter = new FileWriter(file);
 
             long startTime = System.nanoTime();
             while ((System.nanoTime() - startTime) < workTime) {
